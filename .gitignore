@@ -257,3 +257,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+BooksCatalogue/.vs/BooksCatalogue/v15/Server/sqlite3/db.lock

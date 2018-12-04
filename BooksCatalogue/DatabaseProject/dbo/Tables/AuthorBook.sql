@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[AuthorBook]
+(
+	[BookId]	INT NOT NULL,
+	[AuthorId]	INT NOT NULL,
+	FOREIGN KEY (BookId) REFERENCES Books(Id) ON DELETE CASCADE,
+	FOREIGN KEY (AuthorId) REFERENCES Authors(Id) ON DELETE CASCADE
+)
