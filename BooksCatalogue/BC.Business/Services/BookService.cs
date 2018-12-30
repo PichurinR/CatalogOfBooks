@@ -15,7 +15,7 @@ namespace BC.Business.Services
 
 		public BookService(IMappingService mapper, IBookRepository bookRepo) : base(mapper)
 		{
-			_bookRepo = bookRepo
+			_bookRepo = bookRepo;
 		}
 		public long CreateBook(BaseBookVM book)
 		{
