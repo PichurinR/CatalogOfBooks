@@ -9,6 +9,5 @@ namespace BC.Entity
         public int Pages { get; set; }
         public int Rating { get; set; }
         public DateTime DateOfPublication { get; set; }
-
     }
 }

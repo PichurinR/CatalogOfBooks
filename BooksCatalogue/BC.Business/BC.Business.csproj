@@ -4,4 +4,14 @@
     <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BC.Infrastructure\BC.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\BooksCatalogue\Bin\AutoMapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
