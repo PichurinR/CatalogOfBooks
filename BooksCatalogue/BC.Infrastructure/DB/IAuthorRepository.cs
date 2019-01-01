@@ -9,10 +9,10 @@ namespace BC.Infrastructure.DB
 {
     public interface IAuthorRepository : IRepository<AuthorEM>
     {
-        IEnumerable<AuthorEM> GetAllAuthors();
+        IEnumerable<AuthorEM> GetAllAuthors(long offset, long take);
         AuthorEM GetAuthor(long id);
-        long CreateAuthor(AuthorEM book);
-        void EditAuthor(AuthorEM book);
+        long CreateAuthor(AuthorEM author);
+        void EditAuthor(AuthorEM author);
         void DeleteAuthor(long id);
     }
 }

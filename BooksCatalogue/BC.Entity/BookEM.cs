@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Dapper.Contrib.Extensions;
 
 namespace BC.Entity
 {
@@ -9,5 +11,8 @@ namespace BC.Entity
         public int Pages { get; set; }
         public int Rating { get; set; }
         public DateTime DateOfPublication { get; set; }
-    }
+
+        [Write(false)]
+        public List<AuthorEM> Authors { get; set; }
+	}
 }
