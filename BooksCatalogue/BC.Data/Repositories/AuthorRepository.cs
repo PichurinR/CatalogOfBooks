@@ -37,7 +37,7 @@ namespace BC.Data.Repositories
 			parameters.Add("@take", take);
 			parameters.Add("@offset", offset);
 			
-			return ExecuteSPGetList("USP_Get_Authors", parameters).Distinct();
+			return ExecuteSPGetList("USP_Get_Authors", parameters);
 		}
 		
 		public AuthorEM GetAuthor(long id)

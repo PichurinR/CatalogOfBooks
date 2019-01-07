@@ -60,6 +60,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\SP" />
+    <Folder Include="dbo\User Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Authors.sql" />
@@ -67,6 +68,11 @@
     <Build Include="dbo\Tables\AuthorBook.sql" />
     <Build Include="dbo\SP\USP_Get_Author.sql" />
     <Build Include="dbo\SP\USP_Get_Authors.sql" />
+    <Build Include="dbo\SP\USP_Insert_Book.sql" />
+    <Build Include="dbo\User Types\BigIntArrayType.sql" />
+    <Build Include="dbo\SP\USP_Update_Book.sql" />
+    <Build Include="dbo\SP\USP_Get_Books.sql" />
+    <Build Include="dbo\SP\USP_Get_Book.sql" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

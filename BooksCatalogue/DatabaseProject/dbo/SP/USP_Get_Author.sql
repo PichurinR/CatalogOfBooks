@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[USP_Get_Author]
-	@id BIGINT
+	@Id BIGINT
 AS 
 	SELECT a.[Id], a.[FirstName], a.[LastName],
 	b.[Id], b.[Title], b.[Pages], b.[Rating],b.[DateOfPublication]	

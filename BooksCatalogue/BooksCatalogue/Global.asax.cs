@@ -2,7 +2,6 @@
 using System.Web.Routing;
 using BC.Bootstrap;
 
-
 namespace BooksCatalogue
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -10,9 +9,8 @@ namespace BooksCatalogue
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            ApplicationMapper.Init();
             UnityConfig.RegisterComponents();
+			RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using BC.Entity;
 using BC.Infrastructure.DB;
 using BC.Infrastructure.Services;
 using DC.ViewModels.Book;
@@ -17,29 +14,33 @@ namespace BC.Business.Services
 		{
 			_bookRepo = bookRepo;
 		}
-		public long CreateBook(BaseBookVM book)
+		public long CreateBook(BookCreateVM book)
 		{
-			throw new NotImplementedException();
+			BookEM bookEM = _mapper.MapTo<BookEM>(book);
+			return _bookRepo.CreateBook(bookEM);
 		}
 
 		public void DeleteBook(long id)
 		{
-			throw new NotImplementedException();
+			_bookRepo.DeleteBook(id);
 		}
 
-		public void EditBook(BaseBookVM author)
+		public void EditBook(BookCreateVM book)
 		{
-			throw new NotImplementedException();
+			BookEM bookEM = _mapper.MapTo<BookEM>(book);
+			_bookRepo.EditBook(bookEM);
 		}
 
-		public IEnumerable<BaseBookVM> GetAllBooks(long offset, long take)
+		public IEnumerable<BookInfoVM> GetAllBooks(long offset, long take)
 		{
-			throw new NotImplementedException();
+			IEnumerable<BookEM> booksEM = _bookRepo.GetAllBooks(offset, take);
+			return _mapper.MapListTo<BookInfoVM>(booksEM);
 		}
 
 		public BookInfoVM GetBook(long id)
 		{
-			throw new NotImplementedException();
+			BookEM bookEM = _bookRepo.GetBook(id);
+			return _mapper.MapTo<BookInfoVM>(bookEM);
 		}
 	}
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BC.Infrastructure.Services;
+﻿using BC.Infrastructure.Services;
 
 namespace BC.Business.Services
 {
@@ -11,7 +6,7 @@ namespace BC.Business.Services
 	{
 		protected readonly IMappingService _mapper;
 
-		public BaseService(IMappingService mapper)
+		protected BaseService(IMappingService mapper)
 		{
 			_mapper = mapper;
 		}
