@@ -1,39 +1,95 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Mvc;
+using BC.Infrastructure.Services;
 
 namespace BooksCatalogue.Controllers
 {
-    public class BookController : ApiController
+    public class BookController : Controller
     {
-        // GET: api/Book
-        public IEnumerable<string> Get()
+	    private readonly IBookService _bookService;
+
+	    public BookController(IBookService bookService)
+	    {
+		    _bookService = bookService;
+	    }
+		// GET: Book
+		[HttpGet]
+		public ActionResult GetBooks()
         {
-            return new string[] { "value1", "value2" };
+			var books = _bookService.GetAllBooks(1,10).ToList();
+			return Json(new { data = books }, JsonRequestBehavior.AllowGet);
+		}
+
+        // GET: Book/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
         }
 
-        // GET: api/Book/5
-        public string Get(int id)
+        // GET: Book/Create
+        public ActionResult Create()
         {
-            return "value";
+            return View();
         }
 
-        // POST: api/Book
-        public void Post([FromBody]string value)
+        // POST: Book/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
         {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
-        // PUT: api/Book/5
-        public void Put(int id, [FromBody]string value)
+        // GET: Book/Edit/5
+        public ActionResult Edit(int id)
         {
+            return View();
         }
 
-        // DELETE: api/Book/5
-        public void Delete(int id)
+        // POST: Book/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
         {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Book/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Book/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

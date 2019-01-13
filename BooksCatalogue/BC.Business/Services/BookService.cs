@@ -34,7 +34,8 @@ namespace BC.Business.Services
 		public IEnumerable<BookInfoVM> GetAllBooks(long offset, long take)
 		{
 			IEnumerable<BookEM> booksEM = _bookRepo.GetAllBooks(offset, take);
-			return _mapper.MapListTo<BookInfoVM>(booksEM);
+			var res = _mapper.MapListTo<BookInfoVM>(booksEM);
+			return res;
 		}
 
 		public BookInfoVM GetBook(long id)

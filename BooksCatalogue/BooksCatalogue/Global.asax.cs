@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using BC.Bootstrap;
 using System.Web.Http;
+using System.Web.Optimization;
 
 namespace BooksCatalogue
 {
@@ -13,6 +14,7 @@ namespace BooksCatalogue
             UnityConfig.RegisterComponents();
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			GlobalConfiguration.Configure(WebApiConfig.Register);
+			BundleConfig.RegisterBundles(BundleTable.Bundles);
 		}
     }
 }
