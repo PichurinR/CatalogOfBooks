@@ -4,8 +4,8 @@ using BC.Infrastructure.DB;
 
 namespace BooksCatalogue.Controllers
 {
-	[HandleError(View = "Error")]
-	public class HomeController : Controller
+	
+	public class HomeController : BaseController
 	{
 		
 		private readonly IBookService _bookService;
@@ -17,8 +17,7 @@ namespace BooksCatalogue.Controllers
 		
 		public ActionResult Index()
 		{
-		
-	       return View();
+			return View();
         }
 
     }

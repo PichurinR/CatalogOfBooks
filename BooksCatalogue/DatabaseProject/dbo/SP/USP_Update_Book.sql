@@ -5,7 +5,8 @@
         @DateOfPublication DATE,
 		@AuthorsIds BigIntArrayType READONLY
 AS 
-BEGIN TRANSACTION
+BEGIN TRANSACTION;
+BEGIN TRY
 	UPDATE [Books] SET
 		   [Title] = @Title,
 		   [Pages] = @Pages,
@@ -26,6 +27,18 @@ INSERT INTO AuthorBook([AuthorId],[BookId])
 		SELECT @Id, a.[Item]
 		FROM @insertAuthors AS a
 
-COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0
+    BEGIN
+        ROLLBACK TRANSACTION;
+    END;
+   
+    ;THROW
+END CATCH;
+IF @@TRANCOUNT > 0
+    BEGIN
+       COMMIT TRANSACTION;
+    END;
 RETURN 0
 

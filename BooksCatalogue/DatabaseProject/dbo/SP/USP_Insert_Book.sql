@@ -4,7 +4,9 @@
         @DateOfPublication DATE,
 		@AuthorsIds BigIntArrayType READONLY
 AS 
-BEGIN TRANSACTION
+BEGIN TRANSACTION;
+   
+BEGIN TRY
 
 	DECLARE @TempBookTable TABLE (Id BIGINT)
 	DECLARE @TempBookTableId BIGINT
@@ -19,6 +21,18 @@ BEGIN TRANSACTION
 		SELECT b.[Id], a.[Item]
 		FROM @TempBookTable AS b, @AuthorsIds AS a
 
-COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0
+    BEGIN
+        ROLLBACK TRANSACTION;
+    END;
+   
+    ;THROW
+END CATCH;
+IF @@TRANCOUNT > 0
+    BEGIN
+       COMMIT TRANSACTION;
+    END;
 
 RETURN @TempBookTableId
