@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DC.ViewModels.Book
 {
 	public class BookCreateVM : BaseBookVM
 	{
-		public List<long> AuthorIds { get; set; }
+		[Display(Name = "Authors"),Required]
+		public IEnumerable<long> AuthorIds { get; set; }
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using BC.Infrastructure.Services;
+using DC.ViewModels.Book;
 
 namespace BooksCatalogue.Controllers
 {
@@ -27,27 +28,20 @@ namespace BooksCatalogue.Controllers
         }
 
         // GET: Book/Create
+		[HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View("_CreateBook");
         }
 
         // POST: Book/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+        public JsonResult Create(BookCreateVM item)
+		{
+	        var id =_bookService.CreateBook(item);
+			return Json(id, JsonRequestBehavior.AllowGet);
+        }         
+		
         // GET: Book/Edit/5
         public ActionResult Edit(int id)
         {

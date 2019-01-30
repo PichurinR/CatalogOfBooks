@@ -12,7 +12,7 @@ namespace BooksCatalogue.Filters
 		{
 			if (!filterContext.ExceptionHandled)
 			{
-				filterContext.Result = new RedirectResult("/Content/Error/Error.html");
+				//filterContext.Result = new RedirectResult("/Content/Error/Error.html");
 				filterContext.ExceptionHandled = true;
 			}
 		}

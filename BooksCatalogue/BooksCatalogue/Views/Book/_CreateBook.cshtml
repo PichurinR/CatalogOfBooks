@@ -1,0 +1,26 @@
+﻿@model DC.ViewModels.Book.BookCreateVM
+<h2>Add new Book</h2>
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(x => x.Id, new {
+   data_bind = "value: Id, attr: {name: 'Id'}"
+})
+    @Html.DisplayNameFor(x => x.Title)
+    @Html.TextBoxFor(x => x.Title, htmlAttributes: new { data_bind = "value: Title" })
+    @Html.DisplayNameFor(x => x.Pages)
+    @Html.TextBoxFor(x => x.Pages, htmlAttributes: new { data_bind = "value: Pages" })
+    @Html.DisplayNameFor(x => x.DateOfPublication)
+    @Html.TextBoxFor(x => x.DateOfPublication, htmlAttributes: new { data_bind = "value: DateOfPublication" })
+    @Html.DisplayNameFor(x => x.AuthorIds)
+    @Html.TextBoxFor(x => x.AuthorIds, htmlAttributes: new { data_bind = "value: AuthorIds" })
+    @Html.DisplayNameFor(x => x.Rating)
+    @Html.TextBoxFor(x => x.Rating, htmlAttributes: new { data_bind = "value: Rating" })
+    <button type="submit" class="btn btn-default">Submit</button>
+
+}
+
+@Scripts.Render("~/bundles/book")
+
+
+

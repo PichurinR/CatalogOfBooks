@@ -35,10 +35,7 @@ namespace BC.Bootstrap
 				{
 					mapper.CreateMap<BookEM, BaseBookVM>().ReverseMap();
 					mapper.CreateMap<BookEM, BookInfoVM>().ReverseMap();
-					mapper.CreateMap<BookCreateVM, BookEM>()
-						.ForMember(dest => dest.Authors,
-							opt => opt.MapFrom(src => src.AuthorIds
-								.Select(id => new AuthorEM { Id = id })));
+					mapper.CreateMap<BookCreateVM, BookEM>().ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.AuthorIds));
 
 					mapper.CreateMap<AuthorEM, BaseAuthorVM>().ReverseMap();
 					mapper.CreateMap<AuthorEM, AuthorInfoVM>().ReverseMap();

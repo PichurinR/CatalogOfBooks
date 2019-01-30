@@ -8,7 +8,9 @@ namespace BooksCatalogue
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-				"~/Scripts/jquery-{version}.js"));
+				"~/Scripts/jquery-{version}.js",
+				"~/Scripts/select2.min.js",
+				"~/Scripts/knockout-3.4.2.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
 				"~/Scripts/jquery-ui-{version}.js"));
@@ -27,6 +29,10 @@ namespace BooksCatalogue
 
 			bundles.Add(new ScriptBundle("~/bundles/mainjs").Include(
 				"~/Scripts/BCScripts/main.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/book").Include(
+				"~/Scripts/BCScripts/book.js"));
+
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 				"~/Content/bootstrap.css",

@@ -13,6 +13,6 @@ namespace BC.Entity
         public DateTime DateOfPublication { get; set; }
 
         [Write(false)]
-        public List<AuthorEM> Authors { get; set; }
+        public IEnumerable<AuthorEM> Authors { get; set; }
 	}
 }
