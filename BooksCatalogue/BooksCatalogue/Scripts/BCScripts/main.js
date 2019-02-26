@@ -1,10 +1,27 @@
 ﻿var MainJS = MainJS || {};
 (function () {
     var self = this;
+
+    const addBtnId = '#addBtn';
+    const bookModalId = '#bookModal';
+
     var urlForTable;
     self.Initialize = function (url) {
+      
+
+        $(addBtnId).off().on("click", ShowModal);
+       
         InitializeDataTable(url);
     };
+
+    var ShowModal = function () {
+       
+        $(bookModalId).modal('show');
+
+        //Book.Initialize();
+
+    };
+
 
     var InitializeDataTable = function(url) {
         var oTable = $('#myDatatable').DataTable({
