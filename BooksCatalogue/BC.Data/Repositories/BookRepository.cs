@@ -19,7 +19,7 @@ namespace BC.Data.Repositories
 		{
 		}
 
-		public long CreateBook(BookEM book)
+		public int CreateBook(BookEM book)
 		{
 			var parameters = new DynamicParameters();
 			parameters.Add("@Title", book.Title);
@@ -30,7 +30,7 @@ namespace BC.Data.Repositories
 			parameters.Add("@Id", dbType: DbType.Int64, direction: ParameterDirection.ReturnValue);
 
 			ExecuteSP("USP_Insert_Book", parameters);
-			return parameters.Get<long>("@Id");
+			return parameters.Get<int>("@Id");
 		}
 
 		public void DeleteBook(long id)

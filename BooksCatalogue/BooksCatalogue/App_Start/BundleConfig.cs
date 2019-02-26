@@ -10,7 +10,8 @@ namespace BooksCatalogue
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 				"~/Scripts/jquery-{version}.js",
 				"~/Scripts/select2.min.js",
-				"~/Scripts/knockout-3.4.2.js"));
+				"~/Scripts/knockout-3.4.2.js",
+                "~/Scripts/moment.min.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
 				"~/Scripts/jquery-ui-{version}.js"));

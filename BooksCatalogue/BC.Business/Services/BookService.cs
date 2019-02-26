@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using BC.Entity;
 using BC.Infrastructure.DB;
 using BC.Infrastructure.Services;
@@ -8,15 +10,26 @@ namespace BC.Business.Services
 {
 	public class BookService : BaseService, IBookService
 	{
-		private readonly IBookRepository _bookRepo;
-
+        private static IMappingService _mapper;
+        private readonly IBookRepository _bookRepo;
+    
 		public BookService(IMappingService mapper, IBookRepository bookRepo) : base(mapper)
 		{
 			_bookRepo = bookRepo;
-		}
+            _mapper = mapper;
+        }
 		public long CreateBook(BookCreateVM book)
 		{
-			BookEM bookEM = _mapper.MapTo<BookEM>(book);
+            //var config = new MapperConfiguration(
+            //    cfg =>
+            //        cfg.CreateMap<BookCreateVM, BookEM>()
+            //            .ForMember(dest => dest.Authors, opt =>
+            //                 opt.MapFrom(src => src.AuthorIds.Select(id => new AuthorEM { Id = id }))));
+
+
+            //var mapper = config.CreateMapper();
+
+            BookEM bookEM = _mapper.MapTo<BookEM>(book);
 			return _bookRepo.CreateBook(bookEM);
 		}
 

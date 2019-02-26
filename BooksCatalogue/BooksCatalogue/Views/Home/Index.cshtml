@@ -2,20 +2,43 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add book</button>
 <div style="width:90%; margin:0 auto" class="tablecontainer">
-    <a class="popup btn btn-primary" href="/book/Create" style="margin-bottom:20px; margin-top:20px;">Add Book</a>
-    <table id="myDatatable">
+   <table id="myDatatable">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Pages</th>
-                <th>DateOfPublication</th>
-                <th>Rating</th>
-                <th>Authors</th>
-                <th></th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Title</th>
+            <th>Pages</th>
+            <th>DateOfPublication</th>
+            <th>Rating</th>
+            <th>Authors</th>
+            <th></th>
+            <th></th>
+        </tr>
         </thead>
     </table>
 </div>
+@*  *@
+<div id="bookModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        MainJS.Initialize('@Url.Action("GetBooks", "Book")');
+   });
+</script>

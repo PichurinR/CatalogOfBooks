@@ -11,7 +11,7 @@ namespace BC.Infrastructure.DB
     {
 		IEnumerable<BookEM> GetAllBooks(long offset, long take);
 		BookEM GetBook(long id);
-        long CreateBook(BookEM book);
+        int CreateBook(BookEM book);
         void EditBook(BookEM book);
         void DeleteBook(long id);
     }

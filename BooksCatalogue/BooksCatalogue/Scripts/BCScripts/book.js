@@ -19,6 +19,7 @@
     };
 
     self.create = function () {
+        debugger;
         $.ajax({
             url: '@Url.Action("Create", "Book")',
             cache: false,
