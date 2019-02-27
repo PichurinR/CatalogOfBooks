@@ -29,15 +29,13 @@ namespace BooksCatalogue
 				"~/Scripts/DataTables/jquery.dataTables.min.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/mainjs").Include(
-				"~/Scripts/BCScripts/main.js"));
-
-			bundles.Add(new ScriptBundle("~/bundles/book").Include(
-				"~/Scripts/BCScripts/book.js"));
-
-
+				"~/Scripts/BCScripts/main.js",
+                "~/Scripts/BCScripts/book.js"));
+            
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 				"~/Content/bootstrap.css",
 				"~/Content/site.css",
+                "~/Content/css/select2.min.css",
 				"~/Content/DataTables/css/jquery.dataTables.min.css",
 				"~/Content/themes/base/jquery-ui.min.css"));
 		}

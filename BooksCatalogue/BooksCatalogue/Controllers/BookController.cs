@@ -26,14 +26,7 @@ namespace BooksCatalogue.Controllers
         {
             return View();
         }
-
-        // GET: Book/Create
-		[HttpGet]
-        public ActionResult Create()
-        {
-            return View("_CreateBook");
-        }
-
+        
         // POST: Book/Create
         [HttpPost]
         public JsonResult Create(BookCreateVM item)

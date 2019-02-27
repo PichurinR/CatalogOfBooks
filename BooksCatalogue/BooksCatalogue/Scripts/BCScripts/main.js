@@ -4,21 +4,20 @@
 
     const addBtnId = '#addBtn';
     const bookModalId = '#bookModal';
-
-    var urlForTable;
-    self.Initialize = function (url) {
-      
+    var createBookUrl;
+            
+    self.Initialize = function (getUrl, createUrl) {
+              
 
         $(addBtnId).off().on("click", ShowModal);
-       
-        InitializeDataTable(url);
+        createBookUrl = createUrl;
+        InitializeDataTable(getUrl);
     };
 
-    var ShowModal = function () {
-       
+    var ShowModal = function (createUrl) {
         $(bookModalId).modal('show');
-
-        //Book.Initialize();
+        $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
+        Book.Initialize(createBookUrl);
 
     };
 
@@ -77,57 +76,5 @@
                 }
             ]
         });
-        //$('.tablecontainer').on('click',
-        //    'a.popup',
-        //    function(e) {
-        //        e.preventDefault();
-        //        OpenPopup($(this).attr('href'));
-        //    });
-
-        //function OpenPopup(pageUrl) {
-        //    var $pageContent = $('<div/>');
-        //    $pageContent.load(pageUrl,
-        //        function() {
-        //            $('#popupForm', $pageContent).removeData('validator');
-        //            $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
-        //            $.validator.unobtrusive.parse('form');
-
-        //        });
-
-            //$dialog = $('<div class="popupWindow" style="overflow:auto"></div>')
-            //    .html($pageContent)
-            //    .dialog({
-            //        draggable: false,
-            //        autoOpen: false,
-            //        resizable: false,
-            //        model: true,
-            //        title: 'Popup Dialog',
-            //        height: 550,
-            //        width: 600,
-            //        close: function() {
-            //            $dialog.dialog('destroy').remove();
-            //        }
-            //    })
-
-            //$('.popupWindow').on('submit',
-            //    '#popupForm',
-            //    function(e) {
-            //        var url = $('#popupForm')[0].action;
-            //        $.ajax({
-            //            type: "POST",
-            //            url: url,
-            //            data: $('#popupForm').serialize(),
-            //            success: function(data) {
-            //                if (data.status) {
-            //                    $dialog.dialog('close');
-            //                    oTable.ajax.reload();
-            //                }
-            //            }
-            //        });
-
-            //        e.preventDefault();
-            //    });
-            //$dialog.dialog('open');
-        //}
     };
 }).apply(MainJS);

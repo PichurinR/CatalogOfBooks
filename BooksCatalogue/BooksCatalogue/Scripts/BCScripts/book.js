@@ -1,6 +1,8 @@
 ﻿var Book = Book || {};
 (function () {
     var self = this;
+    const  saveBtnId = '#save_btn';
+   
 
     self.Id = ko.observable("");
     self.Title = ko.observable("");
@@ -8,7 +10,7 @@
     self.DateOfPublication = ko.observable("");
     self.Rating = ko.observable("");
     self.AuthorIds = ko.observableArray();
-   
+
     var BookVM = {
         Id: self.Id,
         Title: self.Title,
@@ -18,10 +20,20 @@
         Rating: self.Rating
     };
 
-    self.create = function () {
+    self.Initialize = function (createBookUrl) {
+
+        self.createBookUrl = createBookUrl;
+        ko.applyBindings(BookVM);
+
+        $(saveBtnId).off().on("click", self.Create);
+    };
+
+    
+
+    self.Create = function () {
         debugger;
         $.ajax({
-            url: '@Url.Action("Create", "Book")',
+            url: self.createBookUrl,
             cache: false,
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -36,6 +48,6 @@
             });
     };
 
- ko.applyBindings(BookVM);
+
     
 }).apply(Book);
