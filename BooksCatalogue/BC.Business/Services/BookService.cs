@@ -20,15 +20,7 @@ namespace BC.Business.Services
         }
 		public long CreateBook(BookCreateVM book)
 		{
-            //var config = new MapperConfiguration(
-            //    cfg =>
-            //        cfg.CreateMap<BookCreateVM, BookEM>()
-            //            .ForMember(dest => dest.Authors, opt =>
-            //                 opt.MapFrom(src => src.AuthorIds.Select(id => new AuthorEM { Id = id }))));
-
-
-            //var mapper = config.CreateMapper();
-
+            
             BookEM bookEM = _mapper.MapTo<BookEM>(book);
 			return _bookRepo.CreateBook(bookEM);
 		}

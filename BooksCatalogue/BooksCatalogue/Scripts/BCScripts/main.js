@@ -16,8 +16,10 @@
 
     var ShowModal = function (createUrl) {
         $(bookModalId).modal('show');
-        $('.datepicker').datepicker({format: 'mm/dd/yyyy'});
         Book.Initialize(createBookUrl);
+        $('#dateOfPublication').datepicker({
+            format: 'yyyy-MM-dd 00:00:00 a'
+        });
 
     };
 
